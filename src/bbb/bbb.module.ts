@@ -1,7 +1,21 @@
-import { forwardRef, Module } from '@nestjs/common';
-import { AaaModule } from 'src/aaa/aaa.module';
+import { DynamicModule, Module } from '@nestjs/common';
+import { BbbService } from './bbb.service';
+import { BbbController } from './bbb.controller';
 
-@Module({
-  imports: [forwardRef(() => AaaModule)],
-})
-export class BbbModule {}
+@Module({})
+export class BbbModule {
+  static register(options: Record<string, any>): DynamicModule {
+    return {
+      module: BbbModule,
+      controllers: [BbbController],
+      providers: [
+        {
+          provide: 'CONFIG_OPTIONS',
+          useValue: options,
+        },
+        BbbService,
+      ],
+      exports: [],
+    };
+  }
+}
