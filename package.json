@@ -14,9 +14,12 @@
     "@nestjs/common": "^11.1.9",
     "@nestjs/core": "^11.1.9",
     "@nestjs/platform-express": "^11.1.9",
+    "express": "^5.1.0",
     "rxjs": "^7.8.2"
   },
   "devDependencies": {
+    "@types/node": "^24.10.1",
+    "cli-color": "^2.0.4",
     "reflect-metadata": "^0.2.2"
   }
 }
